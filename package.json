@@ -1,0 +1,21 @@
+{
+  "name": "apisupertest",
+  "version": "1.0.0",
+  "description": "latihan api automation",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "api"
+  ],
+  "author": "setio",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^5.1.1",
+    "jsonschema": "^1.4.1",
+    "mocha": "^10.5.2",
+    "supertest": "^7.0.0"
+  }
+}

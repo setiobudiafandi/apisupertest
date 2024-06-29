@@ -1,5 +1,13 @@
 import request from "supertest";
 
+function PostWithoutAuth (url, endpoint, reqBody) {
+    const resBody = request(url)
+        .post(endpoint)
+        .send(reqBody)
+
+        return resBody;
+}
+
 function getUserDetail (url,token,id) {
     const response = request(url)
     .get("/users/"+id)
@@ -9,3 +17,4 @@ function getUserDetail (url,token,id) {
 }
 
 export{getUserDetail};
+export{PostWithoutAuth};

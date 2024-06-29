@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx mocha --reporter mochawesome"
   },
   "keywords": [
     "api"
@@ -15,7 +15,10 @@
   "dependencies": {
     "chai": "^5.1.1",
     "jsonschema": "^1.4.1",
-    "mocha": "^10.5.2",
     "supertest": "^7.0.0"
+  },
+  "devDependencies": {
+    "mocha": "^10.5.2",
+    "mochawesome": "^7.1.3"
   }
 }

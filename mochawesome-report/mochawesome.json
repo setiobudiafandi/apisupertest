@@ -1,0 +1,139 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-06-29T06:26:51.054Z",
+    "end": "2024-06-29T06:26:52.112Z",
+    "duration": 1058,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "00b1e788-49b5-4706-ac84-eb8c24a8d698",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "23d11212-57f7-4497-9b55-42e14c35ddeb",
+          "title": "Login",
+          "fullFile": "D:\\LatihanSanber\\apisupertest\\module\\test\\specs\\kasirAjaEnd2End.js",
+          "file": "\\module\\test\\specs\\kasirAjaEnd2End.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Login success",
+              "fullTitle": "Login Login success",
+              "timedOut": false,
+              "duration": 829,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const payload = {\n        \"email\": \"sampleku@ex.com\",\n        \"password\": \"pswd123\"\n     }\nconst response = PostWithoutAuth(baseURL,\"/authentications\",payload)\nexpect((await response).status).to.equal(201)\naccessToken = (await response).body.data.accessToken",
+              "err": {},
+              "uuid": "996cea4d-5378-4948-b893-9e8b8b5b02bd",
+              "parentUUID": "23d11212-57f7-4497-9b55-42e14c35ddeb",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "996cea4d-5378-4948-b893-9e8b8b5b02bd"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 829,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "433c3ab8-7c25-4646-a4c3-82ad72f03af1",
+          "title": "Get user detail",
+          "fullFile": "D:\\LatihanSanber\\apisupertest\\module\\test\\specs\\kasirAjaEnd2End.js",
+          "file": "\\module\\test\\specs\\kasirAjaEnd2End.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Positive - success get user detail",
+              "fullTitle": "Get user detail Positive - success get user detail",
+              "timedOut": false,
+              "duration": 205,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const respon = getUserDetail(baseURL,accessToken,\"f614da4b-9929-4a57-9e46-038c020b792a\");\nexpect((await respon).status).to.equal(200)",
+              "err": {},
+              "uuid": "8b6678c8-874c-4640-9a32-a026b8fdc0f5",
+              "parentUUID": "433c3ab8-7c25-4646-a4c3-82ad72f03af1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8b6678c8-874c-4640-9a32-a026b8fdc0f5"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 205,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.5.2"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}

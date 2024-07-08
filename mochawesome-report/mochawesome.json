@@ -1,14 +1,14 @@
 {
   "stats": {
-    "suites": 2,
-    "tests": 2,
-    "passes": 2,
+    "suites": 5,
+    "tests": 5,
+    "passes": 5,
     "pending": 0,
     "failures": 0,
-    "start": "2024-06-29T06:26:51.054Z",
-    "end": "2024-06-29T06:26:52.112Z",
-    "duration": 1058,
-    "testsRegistered": 2,
+    "start": "2024-07-08T02:59:20.199Z",
+    "end": "2024-07-08T02:59:22.965Z",
+    "duration": 2766,
+    "testsRegistered": 5,
     "passPercent": 100,
     "pendingPercent": 0,
     "other": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "00b1e788-49b5-4706-ac84-eb8c24a8d698",
+      "uuid": "3e8297c4-0ebc-476c-93c5-e2d0cc220d5e",
       "title": "",
       "fullFile": "",
       "file": "",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "23d11212-57f7-4497-9b55-42e14c35ddeb",
+          "uuid": "1850c971-bf75-496b-8822-3fca15a88bab",
           "title": "Login",
           "fullFile": "D:\\LatihanSanber\\apisupertest\\module\\test\\specs\\kasirAjaEnd2End.js",
           "file": "\\module\\test\\specs\\kasirAjaEnd2End.js",
@@ -38,7 +38,7 @@
               "title": "Login success",
               "fullTitle": "Login Login success",
               "timedOut": false,
-              "duration": 829,
+              "duration": 1353,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -47,26 +47,65 @@
               "context": null,
               "code": "const payload = {\n        \"email\": \"sampleku@ex.com\",\n        \"password\": \"pswd123\"\n     }\nconst response = PostWithoutAuth(baseURL,\"/authentications\",payload)\nexpect((await response).status).to.equal(201)\naccessToken = (await response).body.data.accessToken",
               "err": {},
-              "uuid": "996cea4d-5378-4948-b893-9e8b8b5b02bd",
-              "parentUUID": "23d11212-57f7-4497-9b55-42e14c35ddeb",
+              "uuid": "1a35eb23-6e4f-499a-a066-2b317bbf3375",
+              "parentUUID": "1850c971-bf75-496b-8822-3fca15a88bab",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "996cea4d-5378-4948-b893-9e8b8b5b02bd"
+            "1a35eb23-6e4f-499a-a066-2b317bbf3375"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 829,
+          "duration": 1353,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
         },
         {
-          "uuid": "433c3ab8-7c25-4646-a4c3-82ad72f03af1",
+          "uuid": "aa4d348e-054b-42f4-be58-9b2d73ac7b46",
+          "title": "Create user",
+          "fullFile": "D:\\LatihanSanber\\apisupertest\\module\\test\\specs\\kasirAjaEnd2End.js",
+          "file": "\\module\\test\\specs\\kasirAjaEnd2End.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Create user success",
+              "fullTitle": "Create user Create user success",
+              "timedOut": false,
+              "duration": 682,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const payload = {\n    \"name\": \"kasir-serbaguna\",\n    \"email\": \"user@example.com\",\n    \"password\": \"jiasda2321@\"\n }\nconst response = PostWithAuth(accessToken, baseURL, \"/users\", payload)\nuserID = (await response).body.data.userId\nexpect((await response).status).to.equal(201)\nexpect((await response).body.status).to.equal(\"success\")",
+              "err": {},
+              "uuid": "bd72c45d-6973-4cd3-b9d8-03dac00d6c5f",
+              "parentUUID": "aa4d348e-054b-42f4-be58-9b2d73ac7b46",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "bd72c45d-6973-4cd3-b9d8-03dac00d6c5f"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 682,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "48ea18f3-ed03-4daa-9d47-7be22965826a",
           "title": "Get user detail",
           "fullFile": "D:\\LatihanSanber\\apisupertest\\module\\test\\specs\\kasirAjaEnd2End.js",
           "file": "\\module\\test\\specs\\kasirAjaEnd2End.js",
@@ -74,32 +113,110 @@
           "afterHooks": [],
           "tests": [
             {
-              "title": "Positive - success get user detail",
-              "fullTitle": "Get user detail Positive - success get user detail",
+              "title": "Success get user detail",
+              "fullTitle": "Get user detail Success get user detail",
               "timedOut": false,
-              "duration": 205,
+              "duration": 221,
               "state": "passed",
               "speed": "slow",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "const respon = getUserDetail(baseURL,accessToken,\"f614da4b-9929-4a57-9e46-038c020b792a\");\nexpect((await respon).status).to.equal(200)",
+              "code": "const respon = getUserDetail(baseURL,accessToken,userID);\nexpect((await respon).status).to.equal(200)\nexpect((await respon).body.status).to.equal(\"success\")\nexpect((await respon).body.data.user.id).to.equal(userID)",
               "err": {},
-              "uuid": "8b6678c8-874c-4640-9a32-a026b8fdc0f5",
-              "parentUUID": "433c3ab8-7c25-4646-a4c3-82ad72f03af1",
+              "uuid": "e6721848-7000-495f-a660-49947b3536dc",
+              "parentUUID": "48ea18f3-ed03-4daa-9d47-7be22965826a",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "8b6678c8-874c-4640-9a32-a026b8fdc0f5"
+            "e6721848-7000-495f-a660-49947b3536dc"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 205,
+          "duration": 221,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "1a16ad5d-11c6-4223-a1e2-810ec342291c",
+          "title": "Update user",
+          "fullFile": "D:\\LatihanSanber\\apisupertest\\module\\test\\specs\\kasirAjaEnd2End.js",
+          "file": "\\module\\test\\specs\\kasirAjaEnd2End.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Update user success",
+              "fullTitle": "Update user Update user success",
+              "timedOut": false,
+              "duration": 255,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const payload = {\n    \"name\": \"update user\",\n    \"email\": \"updateuser@example.com\"\n }\nconst response = Put(accessToken, baseURL, \"/users/\" + userID, payload)\nexpect((await response).status).to.equal(200)\nexpect((await response).body.message).to.contain(\"berhasil\")",
+              "err": {},
+              "uuid": "1188fe83-6cac-48ef-b411-b129d4a10d23",
+              "parentUUID": "1a16ad5d-11c6-4223-a1e2-810ec342291c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "1188fe83-6cac-48ef-b411-b129d4a10d23"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 255,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "2a668ec7-5592-4178-a305-b938679fa791",
+          "title": "Delete user",
+          "fullFile": "D:\\LatihanSanber\\apisupertest\\module\\test\\specs\\kasirAjaEnd2End.js",
+          "file": "\\module\\test\\specs\\kasirAjaEnd2End.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Delete user success",
+              "fullTitle": "Delete user Delete user success",
+              "timedOut": false,
+              "duration": 212,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = Delete(accessToken, baseURL, \"/users/\" + userID)\nexpect((await response).status).to.equal(200)\nexpect((await response).body.status).to.equal(\"success\")",
+              "err": {},
+              "uuid": "b925aca3-2833-496a-9b5d-214efe86a8f4",
+              "parentUUID": "2a668ec7-5592-4178-a305-b938679fa791",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b925aca3-2833-496a-9b5d-214efe86a8f4"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 212,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
